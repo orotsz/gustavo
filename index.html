@@ -3,18 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>gustavo</title>
+  <title>gustavo.</title>
   
-  <style>
-    /* Importa o arquivo da fonte baixado */
-    @font-face {
-      font-family: 'Taste Bread';
-      src: url('Taste Bread.otf') format('opentype'),
-           url('Taste Bread.ttf') format('truetype');
-      font-weight: normal;
-      font-style: normal;
-    }
+  <!-- Fonte Cartoon bem encorpada (Mochiy Pop One) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Mochiy+Pop+One&display=swap" rel="stylesheet">
 
+  <style>
     * {
       margin: 0;
       padding: 0;
@@ -28,22 +24,35 @@
       min-height: 100vh;
       background-color: #0a0a0a;
       color: #ffffff;
-      font-family: 'Taste Bread', sans-serif;
+      font-family: 'Mochiy Pop One', sans-serif;
       overflow: hidden;
     }
 
     h1 {
-      font-size: clamp(4rem, 14vw, 11rem);
-      letter-spacing: 0.02em;
+      font-size: clamp(3.5rem, 12vw, 9.5rem);
+      font-weight: 900;
+      letter-spacing: -0.02em;
       text-transform: lowercase;
       user-select: none;
       cursor: pointer;
+      text-align: center;
       
-      /* Transição suave de movimento */
-      transition: transform 0.2s ease-out;
+      /* Transição de interatividade */
+      transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     }
 
-    /* Animação ao clicar */
+    /* O ponto final ganha um leve destaque */
+    .dot {
+      color: #ffffff;
+      display: inline-block;
+    }
+
+    /* Reação ao passar o mouse */
+    h1:hover {
+      transform: scale(1.03);
+    }
+
+    /* Reação ao clicar / tocar */
     h1:active {
       transform: scale(0.92) !important;
     }
@@ -54,16 +63,16 @@
 </head>
 <body>
 
-  <h1 id="title">gustavo</h1>
+  <h1 id="title">gustavo<span class="dot">.</span></h1>
 
   <script>
     const title = document.getElementById('title');
 
-    // Movimento responsivo e suave com o mouse
+    // Movimento dinâmico e divertido ao passar o mouse
     window.addEventListener('mousemove', (e) => {
       const { innerWidth, innerHeight } = window;
-      const x = (e.clientX / innerWidth - 0.5) * 30;
-      const y = (e.clientY / innerHeight - 0.5) * 30;
+      const x = (e.clientX / innerWidth - 0.5) * 35;
+      const y = (e.clientY / innerHeight - 0.5) * 35;
 
       title.style.transform = `translate3d(${x}px, ${y}px, 0)`;
     });
